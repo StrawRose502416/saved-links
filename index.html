@@ -24,13 +24,25 @@
             <!-- Los enlaces se cargarán desde script.js -->
         </main>
 
+        <!-- Footer con control de volumen -->
         <footer>
-            <p>© 2024 - Todos los derechos reservados</p>
+            <div class="audio-controls">
+                <button id="playPauseBtn" class="audio-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <div class="volume-control">
+                    <i class="fas fa-volume-down"></i>
+                    <input type="range" id="volumeSlider" min="0" max="100" value="25" class="volume-slider">
+                    <i class="fas fa-volume-up"></i>
+                </div>
+                <span id="volumePercent" class="volume-percent">30%</span>
+            </div>
+            <p class="copyright">© 2024 - Todos los derechos reservados</p>
         </footer>
     </div>
 
-    <!-- Audio -->
-    <audio id="love-audio" autoplay loop>
+    <!-- Audio con ID para controlarlo desde JS -->
+    <audio id="love-audio" loop>
         <source src="https://www.dropbox.com/scl/fi/ked5uudx4q150jqeczq1r/Lost-Frequencies-The-Feeling-Lyrics.mp3?rlkey=40e0hbpe541f919mx6lqknbcd&st=thm4aftn&dl=1" type="audio/mpeg">
         Tu navegador no soporta el elemento de audio.
     </audio>

@@ -47,6 +47,7 @@ class LinkManager {
         ];
         
         this.init();
+        this.setupAudioControls();
     }
 
     init() {
@@ -72,6 +73,67 @@ class LinkManager {
         `).join('');
         
         console.log('Enlaces cargados correctamente');
+    }
+
+    setupAudioControls() {
+        const audio = document.getElementById('love-audio');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const volumePercent = document.getElementById('volumePercent');
+        const playIcon = playPauseBtn.querySelector('i');
+
+        // Configurar volumen inicial al 25%
+        audio.volume = 0.25;
+        
+        // Intentar reproducir automáticamente (los navegadores pueden bloquearlo)
+        audio.play().catch(e => {
+            console.log('Autoplay bloqueado por el navegador');
+            playIcon.className = 'fas fa-play';
+        });
+
+        // Control de play/pausa
+        playPauseBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playIcon.className = 'fas fa-pause';
+            } else {
+                audio.pause();
+                playIcon.className = 'fas fa-play';
+            }
+        });
+
+        // Actualizar icono cuando el audio se pausa/reproduce por otros medios
+        audio.addEventListener('play', () => {
+            playIcon.className = 'fas fa-pause';
+        });
+
+        audio.addEventListener('pause', () => {
+            playIcon.className = 'fas fa-play';
+        });
+
+        // Control de volumen
+        volumeSlider.addEventListener('input', (e) => {
+            const volume = e.target.value / 100;
+            audio.volume = volume;
+            volumePercent.textContent = e.target.value + '%';
+            
+            // Cambiar icono de volumen según el nivel
+            const volumeDownIcon = document.querySelector('.fa-volume-down');
+            const volumeUpIcon = document.querySelector('.fa-volume-up');
+            
+            if (volume === 0) {
+                volumeDownIcon.style.opacity = '0.5';
+                volumeUpIcon.style.opacity = '0.5';
+            } else if (volume < 0.5) {
+                volumeDownIcon.style.opacity = '1';
+                volumeUpIcon.style.opacity = '0.7';
+            } else {
+                volumeDownIcon.style.opacity = '0.7';
+                volumeUpIcon.style.opacity = '1';
+            }
+        });
+
+        // ✅ ELIMINADO: localStorage.removeItem y todo el código de persistencia
     }
 
     escapeHtml(text) {
