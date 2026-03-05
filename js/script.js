@@ -1,5 +1,4 @@
 // VERSIÓN SIMPLIFICADA - Solo muestra enlaces estáticos
-
 class LinkManager {
     constructor() {
         // Aquí van TUS enlaces estáticos
@@ -58,6 +57,8 @@ class LinkManager {
     loadLinks() {
         const container = document.getElementById('linksContainer');
         
+        if (!container) return;
+        
         container.innerHTML = this.links.map(link => `
             <a href="${link.url}" target="_blank" class="link-card" data-id="${link.id}">
                 <i class="${link.icon}"></i>
@@ -76,5 +77,5 @@ class LinkManager {
     }
 }
 
-// Inicializar la aplicación
-const linkManager = new LinkManager()
+// Inicializar la aplicación (con punto y coma)
+const linkManager = new LinkManager();
