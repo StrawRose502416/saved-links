@@ -4,33 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jhony_96 - Enlaces</title>
-    <!-- RUTA CORREGIDA: styles.css está en carpeta css/ -->
+    <!-- RUTA CORRECTA: CSS dentro de carpeta css/ -->
     <link rel="stylesheet" href="css/styles.css">
+    <!-- FontAwesome desde CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <header class="profile">
             <div class="profile-image">
-                <!-- RUTA CORREGIDA: image.jpg está en carpeta img/ -->
+                <!-- RUTA CORRECTA: Imagen dentro de carpeta img/ -->
                 <img src="img/image.jpg" alt="Jhony_96">
             </div>
             <h1>Jhony_96</h1>
             <p>A veces las personas no quieren un referente sino que alguien les haga reír</p>
         </header>
 
-        <main class="links-container" id="linksContainer"></main>
+        <main class="links-container" id="linksContainer">
+            <!-- Los enlaces se cargarán desde script.js -->
+        </main>
 
         <footer>
             <p>© 2024 - Todos los derechos reservados</p>
         </footer>
     </div>
-    
+
+    <!-- Audio -->
     <audio id="love-audio" autoplay loop>
         <source src="https://www.dropbox.com/scl/fi/ked5uudx4q150jqeczq1r/Lost-Frequencies-The-Feeling-Lyrics.mp3?rlkey=40e0hbpe541f919mx6lqknbcd&st=thm4aftn&dl=1" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
     </audio>
-    
-    <!-- RUTA CORREGIDA: script.js está en carpeta js/ -->
+
+    <!-- RUTA CORRECTA: JavaScript dentro de carpeta js/ -->
     <script src="js/script.js"></script>
 </body>
 </html>

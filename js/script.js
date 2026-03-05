@@ -1,7 +1,6 @@
-// VERSIÓN SIMPLIFICADA - Solo muestra enlaces estáticos
+// Enlaces estáticos
 class LinkManager {
     constructor() {
-        // Aquí van TUS enlaces estáticos
         this.links = [
             {
                 id: 1,
@@ -57,7 +56,10 @@ class LinkManager {
     loadLinks() {
         const container = document.getElementById('linksContainer');
         
-        if (!container) return;
+        if (!container) {
+            console.error('No se encontró el contenedor linksContainer');
+            return;
+        }
         
         container.innerHTML = this.links.map(link => `
             <a href="${link.url}" target="_blank" class="link-card" data-id="${link.id}">
@@ -68,6 +70,8 @@ class LinkManager {
                 </div>
             </a>
         `).join('');
+        
+        console.log('Enlaces cargados correctamente');
     }
 
     escapeHtml(text) {
@@ -77,5 +81,8 @@ class LinkManager {
     }
 }
 
-// Inicializar la aplicación (con punto y coma)
-const linkManager = new LinkManager();
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Iniciando LinkManager...');
+    const linkManager = new LinkManager();
+});
