@@ -82,10 +82,6 @@ class LinkManager {
             // Establecer volumen al 35%
             audio.volume = 0.35;
             
-            // Intentar reproducir automáticamente
-            audio.play().catch(e => {
-                console.log('Autoplay bloqueado por el navegador');
-            });
         }
     }
 
