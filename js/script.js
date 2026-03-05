@@ -6,9 +6,9 @@ class LinkManager {
         this.links = [
             {
                 id: 1,
-                title: "Mi GitHub",
-                url: "https://github.com/tuusuario",
-                icon: "fab fa-github"
+                title: "Streams",
+                url: "https://kick.com/jhony_96",
+                icon: "fas fa-microphone-alt"
             },
             {
                 id: 2,
@@ -18,26 +18,26 @@ class LinkManager {
             },
             {
                 id: 3,
-                title: "Mi Portfolio",
-                url: "https://tuportfolio.com",
-                icon: "fas fa-globe"
+                title: "Mi Tiktok",
+                url: "https://www.tiktok.com/@eljhony_96",
+                icon: "fab fa-tiktok"
             },
             {
                 id: 4,
                 title: "Canal de YouTube",
-                url: "https://youtube.com/@tucanal",
+                url: "https://www.youtube.com/Jhony_96",
                 icon: "fab fa-youtube"
             },
             {
                 id: 5,
                 title: "Instagram",
-                url: "https://instagram.com/tuusuario",
+                url: "https://www.instagram.com/eljhony_96",
                 icon: "fab fa-instagram"
             },
             {
                 id: 6,
                 title: "Twitter/X",
-                url: "https://twitter.com/tuusuario",
+                url: "https://x.com/eljhony_96",
                 icon: "fab fa-twitter"
             },
             {
