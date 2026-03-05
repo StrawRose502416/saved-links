@@ -77,4 +77,4 @@ class LinkManager {
 }
 
 // Inicializar la aplicación
-const linkManager = new LinkManager();
+const linkManager = new LinkManager()
