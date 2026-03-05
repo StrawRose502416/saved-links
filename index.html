@@ -4,29 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jhony_96 - Enlaces</title>
-    <!-- RUTA CORRECTA: CSS dentro de carpeta css/ -->
+    <!-- CSS en carpeta css/ -->
     <link rel="stylesheet" href="css/styles.css">
     <!-- FontAwesome desde CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Control de volumen flotante (FUERA del container) -->
-    <div class="audio-controls">
-        <button id="playPauseBtn" class="audio-btn">
-            <i class="fas fa-play"></i>
-        </button>
-        <div class="volume-control">
-            <i class="fas fa-volume-down"></i>
-            <input type="range" id="volumeSlider" min="0" max="100" value="25" class="volume-slider">
-            <i class="fas fa-volume-up"></i>
-        </div>
-        <span id="volumePercent" class="volume-percent">25%</span>
-    </div>
-
     <div class="container">
         <header class="profile">
             <div class="profile-image">
-                <!-- RUTA CORRECTA: Imagen dentro de carpeta img/ -->
+                <!-- Imagen en carpeta img/ -->
                 <img src="img/image.jpg" alt="Jhony_96">
             </div>
             <h1>Jhony_96</h1>
@@ -38,17 +25,17 @@
         </main>
 
         <footer>
-            <p class="copyright">© 2024 - Todos los derechos reservados</p>
+            <p>© 2024 - Todos los derechos reservados</p>
         </footer>
     </div>
 
-    <!-- Audio con ID para controlarlo desde JS -->
-    <audio id="love-audio" loop>
+    <!-- Audio con volumen al 35% (sin controles visibles) -->
+    <audio id="love-audio" autoplay loop>
         <source src="https://www.dropbox.com/scl/fi/ked5uudx4q150jqeczq1r/Lost-Frequencies-The-Feeling-Lyrics.mp3?rlkey=40e0hbpe541f919mx6lqknbcd&st=thm4aftn&dl=1" type="audio/mpeg">
         Tu navegador no soporta el elemento de audio.
     </audio>
 
-    <!-- RUTA CORRECTA: JavaScript dentro de carpeta js/ -->
+    <!-- JavaScript en carpeta js/ -->
     <script src="js/script.js"></script>
 </body>
 </html>

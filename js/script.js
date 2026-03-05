@@ -16,8 +16,8 @@ class LinkManager {
             },
             {
                 id: 3,
-                title: "Mi Tiktok",
-                url: "https://www.tiktok.com/@eljhony_96",
+                title: "Mi TikTok",
+                url: "https://www.tiktok.com/@jlehony_96",
                 icon: "fab fa-tiktok"
             },
             {
@@ -29,25 +29,25 @@ class LinkManager {
             {
                 id: 5,
                 title: "Instagram",
-                url: "https://www.instagram.com/eljhony_96",
+                url: "https://www.instagram.com/jelhony_96",
                 icon: "fab fa-instagram"
             },
             {
                 id: 6,
                 title: "Twitter/X",
-                url: "https://x.com/eljhony_96",
+                url: "https://x.com/jelhony_96",
                 icon: "fab fa-twitter"
             },
             {
                 id: 7,
                 title: "Contacto Email",
-                url: "mailto:tu@email.com",
+                url: "mailto:ty@email.com",
                 icon: "fas fa-envelope"
             }
         ];
         
         this.init();
-        this.setupAudioControls();
+        this.setupAudio();
     }
 
     init() {
@@ -75,47 +75,18 @@ class LinkManager {
         console.log('Enlaces cargados correctamente');
     }
 
-    setupAudioControls() {
+    setupAudio() {
         const audio = document.getElementById('love-audio');
-        const playPauseBtn = document.getElementById('playPauseBtn');
-        const volumeSlider = document.getElementById('volumeSlider');
-        const volumePercent = document.getElementById('volumePercent');
-        const playIcon = playPauseBtn.querySelector('i');
-
-        // Configurar volumen inicial al 25%
-        audio.volume = 0.25;
         
-        // Intentar reproducir automáticamente
-        audio.play().catch(e => {
-            console.log('Autoplay bloqueado por el navegador');
-            playIcon.className = 'fas fa-play';
-        });
-
-        // Control de play/pausa
-        playPauseBtn.addEventListener('click', () => {
-            if (audio.paused) {
-                audio.play();
-                playIcon.className = 'fas fa-pause';
-            } else {
-                audio.pause();
-                playIcon.className = 'fas fa-play';
-            }
-        });
-
-        audio.addEventListener('play', () => {
-            playIcon.className = 'fas fa-pause';
-        });
-
-        audio.addEventListener('pause', () => {
-            playIcon.className = 'fas fa-play';
-        });
-
-        // Control de volumen
-        volumeSlider.addEventListener('input', (e) => {
-            const volume = e.target.value / 100;
-            audio.volume = volume;
-            volumePercent.textContent = e.target.value + '%';
-        });
+        if (audio) {
+            // Establecer volumen al 35%
+            audio.volume = 0.35;
+            
+            // Intentar reproducir automáticamente
+            audio.play().catch(e => {
+                console.log('Autoplay bloqueado por el navegador');
+            });
+        }
     }
 
     escapeHtml(text) {
