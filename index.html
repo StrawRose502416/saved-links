@@ -10,6 +10,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Control de volumen flotante (FUERA del container) -->
+    <div class="audio-controls">
+        <button id="playPauseBtn" class="audio-btn">
+            <i class="fas fa-play"></i>
+        </button>
+        <div class="volume-control">
+            <i class="fas fa-volume-down"></i>
+            <input type="range" id="volumeSlider" min="0" max="100" value="25" class="volume-slider">
+            <i class="fas fa-volume-up"></i>
+        </div>
+        <span id="volumePercent" class="volume-percent">25%</span>
+    </div>
+
     <div class="container">
         <header class="profile">
             <div class="profile-image">
@@ -24,19 +37,7 @@
             <!-- Los enlaces se cargarán desde script.js -->
         </main>
 
-        <!-- Footer con control de volumen -->
         <footer>
-            <div class="audio-controls">
-                <button id="playPauseBtn" class="audio-btn">
-                    <i class="fas fa-play"></i>
-                </button>
-                <div class="volume-control">
-                    <i class="fas fa-volume-down"></i>
-                    <input type="range" id="volumeSlider" min="0" max="100" value="25" class="volume-slider">
-                    <i class="fas fa-volume-up"></i>
-                </div>
-                <span id="volumePercent" class="volume-percent">25%</span>
-            </div>
             <p class="copyright">© 2024 - Todos los derechos reservados</p>
         </footer>
     </div>

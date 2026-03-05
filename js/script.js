@@ -85,7 +85,7 @@ class LinkManager {
         // Configurar volumen inicial al 25%
         audio.volume = 0.25;
         
-        // Intentar reproducir automáticamente (los navegadores pueden bloquearlo)
+        // Intentar reproducir automáticamente
         audio.play().catch(e => {
             console.log('Autoplay bloqueado por el navegador');
             playIcon.className = 'fas fa-play';
@@ -102,7 +102,6 @@ class LinkManager {
             }
         });
 
-        // Actualizar icono cuando el audio se pausa/reproduce por otros medios
         audio.addEventListener('play', () => {
             playIcon.className = 'fas fa-pause';
         });
@@ -116,24 +115,7 @@ class LinkManager {
             const volume = e.target.value / 100;
             audio.volume = volume;
             volumePercent.textContent = e.target.value + '%';
-            
-            // Cambiar icono de volumen según el nivel
-            const volumeDownIcon = document.querySelector('.fa-volume-down');
-            const volumeUpIcon = document.querySelector('.fa-volume-up');
-            
-            if (volume === 0) {
-                volumeDownIcon.style.opacity = '0.5';
-                volumeUpIcon.style.opacity = '0.5';
-            } else if (volume < 0.5) {
-                volumeDownIcon.style.opacity = '1';
-                volumeUpIcon.style.opacity = '0.7';
-            } else {
-                volumeDownIcon.style.opacity = '0.7';
-                volumeUpIcon.style.opacity = '1';
-            }
         });
-
-        // ✅ ELIMINADO: localStorage.removeItem y todo el código de persistencia
     }
 
     escapeHtml(text) {

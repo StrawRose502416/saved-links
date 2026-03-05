@@ -1,15 +1,53 @@
-/* ===== CONTROL DE VOLUMEN ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #6366f1;
+    --secondary-color: #4f46e5;
+    --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --text-primary: #1f2937;
+    --text-secondary: #4b5563;
+    --shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background: var(--background);
+    min-height: 100vh;
+    color: var(--text-primary);
+}
+
+/* ===== CONTROL DE VOLUMEN FLOTANTE ===== */
 .audio-controls {
-    background: rgba(255, 255, 255, 0.1);
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border-radius: 50px;
     padding: 10px 20px;
-    margin-bottom: 15px;
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 15px;
     border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .audio-btn {
@@ -36,30 +74,30 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    flex: 1;
-    max-width: 200px;
 }
 
 .volume-control i {
-    color: white;
+    color: var(--text-primary);
     font-size: 14px;
     opacity: 0.8;
 }
 
 .volume-slider {
-    flex: 1;
+    width: 120px;
     height: 4px;
     -webkit-appearance: none;
-    background: rgba(255, 255, 255, 0.3);
+    appearance: none;  /* Propiedad estándar añadida */
+    background: rgba(0, 0, 0, 0.1);
     border-radius: 2px;
     outline: none;
 }
 
 .volume-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
+    appearance: none;
     width: 15px;
     height: 15px;
-    background: white;
+    background: var(--primary-color);
     border-radius: 50%;
     cursor: pointer;
     transition: transform 0.2s ease;
@@ -68,26 +106,207 @@
 
 .volume-slider::-webkit-slider-thumb:hover {
     transform: scale(1.2);
+    background: var(--secondary-color);
+}
+
+/* Para Firefox */
+.volume-slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
     background: var(--primary-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.volume-slider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    background: var(--secondary-color);
 }
 
 .volume-percent {
-    color: white;
+    color: var(--text-primary);
     font-size: 12px;
     min-width: 40px;
     text-align: right;
     font-weight: 500;
 }
 
-.copyright {
-    margin-top: 10px;
+.container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 80px;  /* Espacio para el control flotante */
 }
 
-/* Responsive para controles de audio */
-@media (max-width: 480px) {
+/* Profile Section */
+.profile {
+    text-align: center;
+    margin-bottom: 30px;
+    animation: fadeIn 0.8s ease;
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid white;
+    box-shadow: var(--shadow);
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile h1 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.profile p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+}
+
+/* Links Container */
+.links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.link-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: var(--text-primary);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+.link-card:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+    background: white;
+}
+
+.link-card i {
+    font-size: 24px;
+    width: 40px;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.link-card:hover i {
+    transform: scale(1.2);
+}
+
+.link-content {
+    flex: 1;
+}
+
+.link-title {
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 16px;
+}
+
+.link-url {
+    font-size: 12px;
+    color: var(--text-secondary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 300px;
+}
+
+/* Footer simplificado */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 12px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
     .audio-controls {
+        top: 10px;
+        right: 10px;
         padding: 8px 15px;
-        gap: 10px;
+    }
+    
+    .volume-slider {
+        width: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+        padding-top: 70px;
+    }
+    
+    .profile-image {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .profile h1 {
+        font-size: 20px;
+    }
+    
+    .profile p {
+        font-size: 12px;
+    }
+    
+    .link-card {
+        padding: 14px 16px;
+    }
+    
+    .link-title {
+        font-size: 14px;
+    }
+    
+    .link-url {
+        font-size: 11px;
+        max-width: 200px;
+    }
+    
+    .link-card i {
+        font-size: 20px;
+        width: 30px;
+    }
+    
+    .audio-controls {
+        padding: 6px 12px;
     }
     
     .audio-btn {
@@ -96,8 +315,8 @@
         font-size: 14px;
     }
     
-    .volume-control {
-        max-width: 150px;
+    .volume-slider {
+        width: 80px;
     }
     
     .volume-percent {
@@ -106,14 +325,15 @@
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 360px) {
     .audio-controls {
         flex-wrap: wrap;
+        width: calc(100% - 20px);
+        justify-content: center;
     }
     
     .volume-control {
-        max-width: 100%;
         width: 100%;
-        order: 3;
+        justify-content: center;
     }
 }
