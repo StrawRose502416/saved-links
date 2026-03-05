@@ -210,18 +210,18 @@ footer {
 }
 
 /* Personalización adicional - Cambia estos colores si quieres */
-/*
+
 :root {
     --primary-color: #6366f1;  /* Color principal de los iconos */
- /*   --secondary-color: #4f46e5; /* Color secundario */
- /*   --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Gradiente de fondo */
-/*}
+    --secondary-color: #4f46e5; /* Color secundario */
+    --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Gradiente de fondo */
+}
 
 /* Temas alternativos - Descomenta el que te guste */
 
 /* Tema Oscuro */
 
-:root {
+/*:root {
     --primary-color: #a78bfa;
     --secondary-color: #8b5cf6;
     --background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
@@ -229,7 +229,7 @@ footer {
     --text-primary: #f3f4f6;
     --text-secondary: #d1d5db;
 }
-
+*/
 
 /* Tema Verde */
 /*
